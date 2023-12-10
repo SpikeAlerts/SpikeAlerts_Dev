@@ -1,0 +1,6 @@
+**/.ipynb_checkpoints/*
+Data/*
+*.env
+**/__pycache__
+*.DS_Store
+*.cpython-310.pyc
