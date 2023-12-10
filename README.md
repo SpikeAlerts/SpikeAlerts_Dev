@@ -8,13 +8,13 @@ This is a repository to document and develop features for SpikeAlerts.
 
 Still a work in process, but here's what's in the directory right now:
 
-Basic_Python_Requirements.txt - The python requirements for the VM application
-Conda_Developer_Environment.yml - Conda environment for all scripts and exploring data
-.env.example - An example of a .env file that is needed for full functionality
++ Basic_Python_Requirements.txt - The python requirements for the VM application
++ Conda_Developer_Environment.yml - Conda environment for all scripts and exploring data
++ .env.example - An example of a .env file that is needed for full functionality
 
-APP_Documentation/ - A directory that includes all scripts and Jupyter notebooks showing how they work
-    App/ - A copy of the app that is currently running on a Heroku Dyno
-Database/ - A directory with the Database information and documentation
++ APP_Documentation/ - A directory that includes all scripts and Jupyter notebooks showing how they work
+    + App/ - A copy of the app that is currently running on a Heroku Dyno
++ Database/ - A directory with the Database information and documentation
 
 <!--## Installation Instructions
 
