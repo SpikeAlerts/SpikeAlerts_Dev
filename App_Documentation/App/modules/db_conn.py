@@ -26,4 +26,4 @@ else:
           os.getenv('DB_OPTIONS')
           ]
 # print(creds)
-  pg_connection_dict = dict(zip(['dbname', 'user', 'password', 'port', 'host'], creds))
+  pg_connection_dict = dict(zip(['dbname', 'user', 'password', 'port', 'host', 'options'], creds))
