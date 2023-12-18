@@ -43,8 +43,7 @@ def workflow(next_update_time, purpleAir_api, redCap_token_signUp, pg_connection
     returns the next_update_time (datetime timestamp)
     '''
     
-    # PurpleAir
-    # If we haven't already updated the full sensor list today, let's do that
+    # Check Last Update
     
     last_update_date = query.Get_last_Daily_Log(pg_connection_dict) # See Daily_Updates.py      
       
@@ -73,6 +72,17 @@ def workflow(next_update_time, purpleAir_api, redCap_token_signUp, pg_connection
             Clear_afterhour_reports(pg_connection_dict)
     
         print(len(REDCap_df), 'new users')
+        
+        # Morning Alert Reminders
+        
+        ongoing_record_ids = query.Get_ongoing_alert_record_ids(pg_connection_dict)
+        
+        if len(ongoing_record_ids) > 0:
+        
+            messages = [Create_messages.morning_alert_message()] * len(ongoing_record_ids)
+            
+            Send_Alerts.send_all_messages(ongoing_record_ids, messages,
+                                          redCap_token_signUp, pg_connection_dict)
     
     # Get next update time (in 1 day)
     next_update_time += dt.timedelta(days=1)

@@ -92,6 +92,36 @@ Report here - '''
         
     return message
     
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+def morning_alert_message(verified_number = True):
+    '''
+    Get a message for an ongoing alert for the morning update
+    # Composes and returns a single message
+    '''
+    
+        
+    # Short version (1 segment)
+    
+    message = '''Ongoing SpikeAlert
+Air quality may be unhealthy in your area'''
+    
+    # URLs cannot be sent until phone number is verified
+    if verified_number:
+        message = message + f'''
+map.purpleair.com/44.9723/-93.2447'''
+    else:
+        message = message + '''
+        Please see PurpleAir'''
+        
+    message = message + '''
+    
+Text STOP to unsubscribe'''
+        
+    return message
+    
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
 def no_location(signUp_url):
     '''
     Composes a message informing a user of misentered locations 

@@ -153,6 +153,25 @@ def Get_afterhour_reports(pg_connection_dict):
     response = psql.get_response(cmd, pg_connection_dict)
     
     return response
+    
+### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+def Get_ongoing_alert_record_ids(pg_connection_dict):
+    '''
+    This function gets users' record_ids that have an active alert
+    
+    returns a list
+    '''
+
+    cmd = sql.SQL('''SELECT record_id FROM "Sign Up Information"
+    WHERE ARRAY_LENGTH(active_alerts, 1) > 0;
+    ''')
+
+    response = psql.get_response(cmd, pg_connection_dict)
+    
+    record_ids = [i[0] for i in response] # Unpack results into list
+    
+    return record_ids
 
 ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
