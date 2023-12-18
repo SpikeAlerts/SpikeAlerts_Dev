@@ -115,7 +115,7 @@ def main_loop():
             break
     
         # Is is within waking hours? Can we text people?
-        if (now.hour < too_late_hr) & (now.hour > too_early_hr):
+        if (now.hour < too_late_hr) & (now.hour >= too_early_hr):
             can_text = True
         else:
             can_text = False
